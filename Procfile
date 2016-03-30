@@ -1,1 +1,1 @@
-worker: node lib/getChannel.js
+worker: node index.js

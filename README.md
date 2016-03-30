@@ -8,12 +8,12 @@ Automatic podcast creator for The Daily Decrypt https://www.youtube.com/channel/
 
 Automatically generate a podcast website containing MP3s of every Daily Decrypt show, persisting it to IPFS.
 
-* [ ] get list of vids
-* [ ] download vids
-* [ ] convert vids
-* [ ] generate website
-* [ ] add website IPFS
-* [ ] publish to IPNS
+* get list of vids
+* download vids
+* convert vids
+* generate website
+* add website IPFS
+* publish to IPNS
 
 
 ### Goal Detail
@@ -35,6 +35,55 @@ Twice per day, this program runs on a computer somewhere. It uses the Youtube AP
     * [ipfs-kloud](https://github.com/insanity54/ipfs-kloud) (uses Ansible to manage a cluster of IPFS gateway servers)
 
 
+
+## Installation
+
+**Note: You do not need to install this project to use it. Installing this project is for developers who want to hack on this project, see how it works, etc.**
+
+### Prerequisites
+
+First you will need a youtube developer API key. Go here https://console.developers.google.com/apis/credentials and create an app. Then create a `Server` type API key. Then enable the Youtube API for this app.
+
+Create a file `.env` which will hold your API key.
+
+You will also need git, node.js, and npm.
+
+
+### Installing
+
+Clone the project to your computer
+
+    $ git clone
+
+cd into the project directory
+
+    $ cd tdd
+
+create a file, `.env` and paste in the Google/YouTube API key you created in the above Prerequisites section. Your `.env` file should look like this-
+
+    YOUTUBE_API_KEY=SDJFOKLPEIJ83a8dfjf83oad8f-EUfjfafjisSf
+
+install the node modules needed for this project
+
+    npm install
+
+start the program
+
+    npm run start
+
+Now the app will download and podcastify and IPFSify any videos that haven't been already. Also, the app will react to new TDD video uploads, podcastifying and IPFSifying them as they are published to youtube.
+
+
+## TODO list
+
+* [x] get list of vids
+* [ ] download vids
+* [ ] convert vids
+* [ ] generate website
+* [ ] add website IPFS
+* [ ] publish to IPNS
+
+* [ ] add reactional podcastification, IPFSification
 
 ## Contributing
 
