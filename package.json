@@ -1,0 +1,30 @@
+{
+  "name": "the-daily-decrypt-podcasts",
+  "version": "1.0.0",
+  "description": "Podcast generator for The Daily Decrypt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insanity54/tdd.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "daily",
+    "decrypt",
+    "podcast"
+  ],
+  "author": "Chris Grimmett <chris@grimtech.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/insanity54/tdd/issues"
+  },
+  "homepage": "https://github.com/insanity54/tdd#readme",
+  "dependencies": {
+    "casperjs": "^1.1.0-beta5",
+    "youtube-api": "^1.4.0",
+    "youtube-dl": "^1.11.0"
+  }
+}
