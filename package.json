@@ -25,6 +25,7 @@
   "dependencies": {
     "casperjs": "^1.1.0-beta5",
     "fluent-ffmpeg": "^2.0.1",
+    "underscore": "^1.8.3",
     "youtube-api": "^1.4.0",
     "youtube-dl": "^1.11.0",
     "ytdl-core": "^0.7.13"

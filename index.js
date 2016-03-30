@@ -2,6 +2,7 @@ var path = require('path');
 var youtube = require(path.join(__dirname, 'lib', 'youtube'));
 var downloader = require(path.join(__dirname, 'lib', 'downloader'));
 var iprofessor = require(path.join(__dirname, 'lib', 'ipfs-professor'));
+var queue = require(path.join(__dirname, 'lib', 'queue'));
 
 
 // make sure the youtube api key exists in the system environment
@@ -9,9 +10,9 @@ if (typeof process.env.YOUTUBE_API_KEY === 'undefined') throw new Error('YOUTUBE
 
 
 // when a TDD YT video is uploaded, download it and podcastify.
-youtube.on('upload', function(video) {
-  queue.push({ videoID: video.id });
-});
+// youtube.on('upload', function(video) {
+//   queue.push({ videoID: video.id });
+// });
 
 
 // when this program is starts up, get list of all TDD vids and download any
