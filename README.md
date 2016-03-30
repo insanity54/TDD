@@ -1,5 +1,7 @@
 # TheDailyDecrypt Podcast Generator
 
+a.k.a. TDDPG (cooler name pending)
+
 Automatic podcast creator for The Daily Decrypt https://www.youtube.com/channel/UCqNCLd2r19wpWWQE6yDLOOQ
 
 ## Project Goal
@@ -18,7 +20,19 @@ Automatically generate a podcast website containing MP3s of every Daily Decrypt 
 
 ### Goal Detail
 
-Twice per day, this program runs on a computer somewhere. It uses the Youtube API to fetch a list of all Daily Decrypt videos. It then downloads every video it doesn't already have, and converts them into MP3s. Then it generates a static HTML site with RSS feed and iTunes link. Then it adds the HTML site to IPFS, and updates an IPNS hash to point to the latest IPFS hash of the podcast site.
+This program/server/app TDDPG runs on a computer somewhere.
+
+
+#### Function 1 - Bulk Podcastification, IPFSification
+
+TDDPG runs on a computer somewhere. When started, and twice per day, TDDPG uses the YouTube API and IPFS API to find out if there are any TDD videos which have not yet been podcastified and IPFSified. Any videos which TDDPG hasn't already processed are converted into MP3s, rendered into a simple podcast website, and stored on IPFS.
+
+
+#### Function 2 - Reactional Podcastification, IPFSification
+
+When TheDailyDecrypt uploads a new video, TDDPG is notified of this video's details via the youtube API.
+
+TDDPG then downloads the new video, converting it into an MP3. Then it generates a static HTML site with RSS feed and iTunes link. Then it adds the HTML site to IPFS, and updates an IPNS hash to point to the latest IPFS hash of the podcast site.
 
 
 ## The Stack
@@ -83,7 +97,8 @@ Now the app will download and podcastify and IPFSify any videos that haven't bee
 * [ ] add website IPFS
 * [ ] publish to IPNS
 
-* [ ] add reactional podcastification, IPFSification
+* [ ] bulk podcastification, IPFSification
+* [ ] reactional podcastification, IPFSification
 
 ## Contributing
 
