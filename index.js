@@ -11,12 +11,22 @@ if (typeof process.env.YOUTUBE_API_KEY === 'undefined') throw new Error('YOUTUBE
 
 // when a TDD YT video is uploaded, download it and podcastify.
 // youtube.on('upload', function(video) {
-//   queue.push({ videoID: video.id });
+//   queue.dl.push({ videoID: video.id });
 // });
 
 
-// when this program is starts up, get list of all TDD vids and download any
+// when this program starts up, get list of all TDD vids and download any
 // that have not been podcastified.
 youtube.getChannelUploads(function(err, videos) {
-  queue.push(videos)
+    if (err) throw err;
+    console.log(videos.items[0].snippet);
+
+    queue.intel.push(videos)
+  //queue.dl.push(videos)
 });
+
+
+// when program starts
+//   get array of videos from channel
+//   create videoID.json
+//   create videoID.mp3

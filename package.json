@@ -4,7 +4,8 @@
   "description": "Podcast generator for The Daily Decrypt",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nf run mocha",
+    "start": "nf start"
   },
   "repository": {
     "type": "git",
