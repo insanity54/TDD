@@ -3,13 +3,20 @@ var youtube = require(path.join(__dirname, 'lib', 'youtube'));
 var downloader = require(path.join(__dirname, 'lib', 'downloader'));
 var iprofessor = require(path.join(__dirname, 'lib', 'ipfs-professor'));
 var queue = require(path.join(__dirname, 'lib', 'queue'));
+var Overlord = require(path.join(__dirname, 'lib', 'overlord'));
 
 
 // make sure the youtube api key exists in the system environment
 if (typeof process.env.YOUTUBE_API_KEY === 'undefined') throw new Error('YOUTUBE_API_KEY is not defined in your environment, and it is required.')
 
 
+
+
+
 // when a TDD YT video is uploaded, download it and podcastify.
+var overlord = new Overlord();
+
+
 // youtube.on('upload', function(video) {
 //   queue.dl.push({ videoID: video.id });
 // });
