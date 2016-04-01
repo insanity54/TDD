@@ -13,10 +13,20 @@ if (typeof process.env.YOUTUBE_API_KEY === 'undefined') throw new Error('YOUTUBE
 
 
 
+var olOpts = {
+    youtube: youtube,
+    channel: 'UCqNCLd2r19wpWWQE6yDLOOQ',
+    queue: queue
+}
+
+// overlord handles control flow
+var overlord = new Overlord(olOpts);
+overlord.download();
+
+
+
+
 // when a TDD YT video is uploaded, download it and podcastify.
-var overlord = new Overlord();
-
-
 // youtube.on('upload', function(video) {
 //   queue.dl.push({ videoID: video.id });
 // });
@@ -24,13 +34,13 @@ var overlord = new Overlord();
 
 // when this program starts up, get list of all TDD vids and download any
 // that have not been podcastified.
-youtube.getChannelUploads(function(err, videos) {
-    if (err) throw err;
-    console.log(videos.items[0].snippet);
+//youtube.getChannelUploads(function(err, videos) {
+//    if (err) throw err;
+//    console.log(videos.items[0].snippet);
 
-    queue.intel.push(videos)
+//    queue.intel.push(videos)
   //queue.dl.push(videos)
-});
+//});
 
 
 // when program starts
