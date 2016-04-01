@@ -98,6 +98,21 @@ describe('youtube', function() {
 	    });
 	});
 
+	it('should get a new page if using nextPageToken', function(done) {
+	    youtube.getChannelUploads(cid, npt, function(err, videos) {
+		assert.isNull(err);
+		var nnpt = videos.nextPageToken;
+		youtube.getChannelUploads(cid, nnpt, function(err, v) {
+		    assert.isNull(err);
+		    assert.isObject(v);
+		    assert.equal(videos.kind, pir);
+		    assert.isString(videos.items[0].snippet.title);
+		    assert.notEqual(videos.items[0].snippet.title, v.items[0].snippet.title);
+		    done();
+		});
+	    });
+	});	
+
     });
     
 });
