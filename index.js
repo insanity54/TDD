@@ -28,27 +28,6 @@ var olOpts = {
 var overlord = new Overlord(olOpts);
 overlord.download();
 
+overlord.on('', function() {
 
-
-
-// when a TDD YT video is uploaded, download it and podcastify.
-// youtube.on('upload', function(video) {
-//   queue.dl.push({ videoID: video.id });
-// });
-
-
-// when this program starts up, get list of all TDD vids and download any
-// that have not been podcastified.
-//youtube.getChannelUploads(function(err, videos) {
-//    if (err) throw err;
-//    console.log(videos.items[0].snippet);
-
-//    queue.intel.push(videos)
-  //queue.dl.push(videos)
-//});
-
-
-// when program starts
-//   get array of videos from channel
-//   create videoID.json
-//   create videoID.mp3
+});

@@ -91,8 +91,8 @@ Now the app will download and podcastify and IPFSify any videos that haven't bee
 ## TODO list
 
 * [x] get list of vids
-* [ ] download vids
-* [ ] convert vids
+* [x] download vids
+* [x] convert vids
 * [ ] generate website
 * [ ] add website IPFS
 * [ ] publish to IPNS

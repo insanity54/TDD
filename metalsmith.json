@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "title": "The Daily Decrypt Podcast"
+  },
+  "source": "src/pages",
+  "destination": "dist",
+  "plugins": [
+    {
+      "metalsmith-assets": {
+        "source": "src/assets_root",
+        "destination": "."
+      }
+    }, {
+      "metalsmith-assets": {
+        "source": "src/assets_css",
+        "destination": "./css"
+      }
+    }, {
+      "metalsmith-assets": {
+        "source": "src/assets_js",
+        "destination": "./js"
+      }
+    }, {
+      "metalsmith-assets": {
+        "source": "src/assets_img",
+        "destination": "./img"
+      }
+    }, {
+      "metalsmith-assets": {
+        "source": "bower_components",
+        "destination": "./vendor"
+      }
+    }, {
+      "metalsmith-markdown": {
+        "smartypants": true,
+        "gfm": true,
+        "tables": true
+      }
+    }, {
+      "metalsmith-layouts": {
+        "engine": "handlebars",
+        "directory": "src/templates",
+        "partials": "src/partials"
+      }
+    }
+  ]
+}
