@@ -25,7 +25,11 @@
   "homepage": "https://github.com/insanity54/tdd#readme",
   "dependencies": {
     "fluent-ffmpeg": "^2.0.1",
+    "handlebars": "^4.0.5",
     "metalsmith": "^2.1.0",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-layouts": "^1.6.4",
+    "metalsmith-metafiles": "^2.0.0",
     "taglib": "git://github.com/Vortex375/node-taglib.git#v8-compat",
     "underscore": "^1.8.3",
     "youtube-mp3-downloader": "^0.4.2"

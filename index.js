@@ -4,6 +4,8 @@ var downloader = require(path.join(__dirname, 'lib', 'downloader'));
 var iprofessor = require(path.join(__dirname, 'lib', 'ipfs-professor'));
 var Queue = require(path.join(__dirname, 'lib', 'queue'));
 var Overlord = require(path.join(__dirname, 'lib', 'overlord'));
+var Builder = require(path.join(__dirname, 'lib', 'builder'));
+
 
 
 // make sure the youtube api key exists in the system environment
@@ -28,6 +30,12 @@ var olOpts = {
 var overlord = new Overlord(olOpts);
 overlord.download();
 
-overlord.on('', function() {
 
+overlord.on('complete', function() {
+    // overlord has downloaded all assets needed to create the podcast
+    // time to render a web site using metalsmith
+
+    var builder = new Builder(Metalsmith);
+    builder.build();
+    
 });
