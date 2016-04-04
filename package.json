@@ -28,6 +28,7 @@
     "handlebars": "^4.0.5",
     "metalsmith": "^2.1.0",
     "metalsmith-collections": "^0.7.0",
+    "metalsmith-json-to-files": "^1.0.0",
     "metalsmith-layouts": "^1.6.4",
     "metalsmith-metafiles": "^2.0.0",
     "taglib": "git://github.com/Vortex375/node-taglib.git#v8-compat",

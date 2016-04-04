@@ -13,7 +13,8 @@ describe('Builder', function() {
 	var builder = new Builder({
 	    cwd: path.join(os.homedir(), 'scripts', 'tdd'),
 	    src: path.join(os.homedir(), 'scripts', 'tdd', 'src'),
-	    dest: path.join(os.homedir(), 'tdd', 'dist')
+	    dest: path.join(os.homedir(), 'scripts', 'tdd', 'dist'),
+	    jdir: path.join(os.homedir(), 'scripts', 'tdd', 'json')
 	});
 	builder.build(function(err) {
 	    assert.isNull(err);
