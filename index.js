@@ -27,15 +27,18 @@ var olOpts = {
 }
 
 // overlord handles control flow
-var overlord = new Overlord(olOpts);
-overlord.download();
+var overlord = new Overlord(olOpts).begin();
+
+// overlord.download();
 
 
-overlord.on('complete', function() {
-    // overlord has downloaded all assets needed to create the podcast
-    // time to render a web site using metalsmith
+// overlord.on('complete', function() {
+//     // overlord has downloaded all assets needed to create the podcast
+//     // time to render a web site using metalsmith
 
-    var builder = new Builder(Metalsmith);
-    builder.build();
+
     
-});
+//     var builder = new Builder();
+//     builder.build();
+
+// });

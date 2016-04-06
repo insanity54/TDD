@@ -14,6 +14,18 @@ describe('youtube', function() {
     var pir = 'youtube#playlistItemListResponse';
 
 
+
+    describe('getVideoContentDetails()', function() {
+	it('should return video content details given a video ID', function(done) {
+	    youtube.getVideoContentDetails('0AcHmDxVnMI', function(err, deets) {
+		assert.isNull(err);
+		assert.isObject(deets);
+		assert.isString(deets.items[0].contentDetails.duration);
+		assert.equal(deets.items[0].contentDetails.duration, 'PT3M45S');
+		done();
+	    });
+	});
+    });
     
     
     describe('getVideos()', function() {

@@ -99,12 +99,12 @@ describe('downloader', function() {
 		    downloader2.fetch();
 		    
 		    downloader2.on("error", function(err) {
-			assert.match(err, /already exists/, "got an error that did not match the expected 'already exists' error");
-			done();
+			assert.isNull(err);
 		    });
 		    
-		    downloader2.on("complete", function(path) {
-			throw new Error("download completed when it should have had an 'already exists' error");
+		    downloader2.on("complete", function(filePath) {
+			assert.equal(path.dirname(filePath), path.join(os.homedir(), 'tdd', 'src'));
+			done();
 		    });		
 		});
 	    });
