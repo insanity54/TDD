@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/insanity54/tdd#readme",
   "dependencies": {
+    "feed": "^0.3.0",
     "fluent-ffmpeg": "^2.0.1",
     "handlebars": "^4.0.5",
     "metalsmith": "^2.1.0",

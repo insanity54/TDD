@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="alternate" type="application/rss+xml" href="./rss.xml" />  {{! RSS link }}
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -16,6 +18,9 @@
 </head>
 <body>
   <div class="container">
+    <a rel="alternate" type="application/rss+xml" href="./rss.xml">
+      <img src="./feed-icon-28x28.png">
+    </a>
     <h1>The Daily Decrypt Podcast</h1>
     {{#each this}}
       <div class="row">

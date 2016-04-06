@@ -14,7 +14,15 @@ describe('Builder', function() {
 	    cwd: path.join(os.homedir(), 'scripts', 'tdd'),
 	    src: path.join(os.homedir(), 'scripts', 'tdd', 'src'),
 	    dest: path.join(os.homedir(), 'scripts', 'tdd', 'dist'),
-	    jdir: path.join(os.homedir(), 'scripts', 'tdd', 'json')
+	    jdir: path.join(os.homedir(), 'scripts', 'tdd', 'json'),
+	    podcastTitle: 'The Daily Decrypt Podcast',
+	    podcastDesc: "We are here to serve up the latest Cryptocurrency & P2P tech news, to keep you up to date with the latest trends and developments so you don't spend all day researching! Some hot coffee & The Daily Decrypt make a great way to get your daily crypto morning!",
+	    podcastLink: "http://thedailydecrypt.com/",
+	    podcastImage: "http://thedailydecrypt.com/wp-content/uploads/2016/03/the-daily-decrypt-logo-header-730x260.png",
+	    podcastCopyright: "Be free!",
+	    podcastAuthor: "Chris Grimmett",
+	    podcastAuthorEmail: "chris@grimtech.net",
+	    podcastAuthorLink: "http://tddpodcast.grimtech.net/"
 	});
 	builder.build(function(err) {
 	    assert.isNull(err);
