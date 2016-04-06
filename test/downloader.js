@@ -5,8 +5,10 @@ var assert = require('chai').assert;
 var fs = require('fs');
 
 
-var testPath = os.tmpdir();
-assert(path.isAbsolute(testPath));
+var dlPath = path.join(os.tmpdir(), 'Mh2GQmfN-AI.mp3');
+var defaultDlPath = path.join(os.homedir(), 'tdd', 'src', 'Mh2GQmfN-AI.mp3');
+assert(path.isAbsolute(dlPath));
+assert(path.isAbsolute(defaultDlPath));
 
 
 describe('downloader', function() {
@@ -15,33 +17,31 @@ describe('downloader', function() {
 	this.timeout(10000);
 
 	beforeEach(function(done) {
-	    // delete test mp3
-	    fs.unlink(path.join(testPath, 'Mh2GQmfN-AI.mp3'), function(err) {
-		done();
+	    // delete test mp3s
+	    //console.log('deleting %s and %s', dlPath, defaultDlPath);
+	    fs.unlink(dlPath, function(err) {
+		fs.unlink(defaultDlPath, function(err) {
+		    done();
+		});
 	    });
 	});
 
 	it('should get an mp3 of a yt video', function(done) {
 	    var downloader = new Downloader({
 		videoID: "Mh2GQmfN-AI",
-		dest: testPath
+		dest: path.dirname(dlPath)
 	    });
 
-	    downloader.check().fetch();
-
-	    downloader.on("progress", function(err, prog) {
-		console.log(err);
-		console.log(prog);
-	    });
-
+	    downloader.fetch();
 
 	    downloader.on("error", function(err) {
-		throw err;
+		assert.isNull(err);
 	    });
 	    
 	    downloader.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);
 		assert.isTrue(path.isAbsolute(filePath));
-		assert.equal(path.dirname(filePath), testPath);
+		assert.equal(filePath, dlPath);
 		fs.stat(filePath, function(err, stats) {
 		    assert.isNull(err);
 		    done();
@@ -55,13 +55,14 @@ describe('downloader', function() {
 		videoID: "Mh2GQmfN-AI"
 	    });
 	    
-	    downloader.check().fetch();
+	    downloader.fetch();
 
 	    downloader.on("error", function(err) {
 		assert.isNull(err);
 	    });
 	    
 	    downloader.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);		
 		assert.isTrue(path.isAbsolute(filePath));
 		assert.equal(path.dirname(filePath), path.join(os.homedir(), 'tdd', 'src'));
 		fs.stat(filePath, function(err, stats) {
@@ -74,34 +75,40 @@ describe('downloader', function() {
 	
 	
 	it('should abort download if the same video has already been downloaded', function(done) {
-	    var downloader = new Downloader({
+	    var downloader1 = new Downloader({
+		videoID: "Mh2GQmfN-AI"
+	    });
+	    var downloader2 = new Downloader({
 		videoID: "Mh2GQmfN-AI"
 	    });
 	    
-	    downloader.check().fetch();
+	    downloader1.fetch();
 
-	    downloader.on("error", function(err) {
-		throw err
+	    downloader1.on("error", function(err) {
+		assert.isNull(err);
 	    });
+
+
 	    
-	    downloader.on("complete", function(filePath) {
+	    downloader1.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);
 		assert.isTrue(path.isAbsolute(filePath));
 		fs.stat(filePath, function(err, stats) {
 		    assert.isNull(err);
 
-		    downloader.check().fetch();
+		    downloader2.fetch();
 		    
-		    downloader.on("error", function(err) {
-			assert.isDefined(err);			
+		    downloader2.on("error", function(err) {
 			assert.match(err, /already exists/, "got an error that did not match the expected 'already exists' error");
 			done();
 		    });
 		    
-		    downloader.on("complete", function(path) {
+		    downloader2.on("complete", function(path) {
 			throw new Error("download completed when it should have had an 'already exists' error");
 		    });		
 		});
 	    });
+	    
 	});
 
 

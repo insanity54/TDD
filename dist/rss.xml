@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>The Daily Decrypt Podcast</title>
+        <description>We are here to serve up the latest Cryptocurrency &amp; P2P tech news, to keep you up to date with the latest trends and developments so you don&apos;t spend all day researching! Some hot coffee &amp; The Daily Decrypt make a great way to get your daily crypto morning!</description>
+        <link>http://thedailydecrypt.com/</link>
+        <lastBuildDate>Wed, 06 Apr 2016 01:47:37 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <image>
+            <title>The Daily Decrypt Podcast</title>
+            <url>http://thedailydecrypt.com/wp-content/uploads/2016/03/the-daily-decrypt-logo-header-730x260.png</url>
+            <link>http://thedailydecrypt.com/</link>
+        </image>
+        <copyright>Be free!</copyright>
+        <generator>Feed for Node.js</generator>
+        <item>
+            <title><![CDATA[NEWS: Ingenico integration; Shapeshifting skeleton; and Desktop robot]]></title>
+            <pubDate>Wed, 07 Oct 2015 21:40:29 GMT</pubDate>
+            <description><![CDATA[Ingenico POS terminals get upgraded; What you might not know about Ukraine; a Skeleton comes out of ShapeShift's closet; Jeffrey Tucker publishes; Makerarm wants to make your life easier; Headphones for the health-conscious.
+
+Connect with us!
+[website] http://TheDailyDecrypt.com
+[tweets] http://Twitter.com/TheDailyDecrypt
+[facebook] http://Facebook.com/TheDailyDecrypt
+[podcast] http://Soundcloud.com/The-LTB-Network
+[LTB Network] https://LetsTalkBitcoin.com/Blog/The-Daily-Decrypt
+
+Wanna sponsor a show?
+http://TheDailyDecrypt.com/Sponsorship
+
+Show links:
+Ingenico Terminals: http://www.coindesk.com/point-of-sale-giant-ingenico-rolls-out-worldwide-bitcoin-payments/ & http://www.ingenico.com/our-solutions/smart-terminals
+Bitcoin ATMs: http://cointelegraph.com/news/115375/bitcoins-new-atm-capital-of-the-world-moves-near-military-hot-zone
+Shapeshift Skeleton: https://shapeshift.io/site/tools/skeleton
+Bit by Bit: https://liberty.me/library/bit-by-bit/ & https://youtu.be/2h9CsGs9eY8
+Makerarm: http://techcrunch.com/2015/10/06/makerarm-is-an-all-in-one-robotic-laser-cutter-3d-printer-painter-fabricator-and-assembler/ & https://www.kickstarter.com/projects/1849283018/makerarm-the-first-robotic-arm-that-makes-anything
+Biometric Headphones: http://vytm.in/fvBZZQ#http://www.wareable.com/headphones/best-sports-headphones
+
+Contact us:
+http://TheDailyDecrypt.com/Contact
+
+Tip us!
+See our addresses for Bitcoin, BitcoinDark, Bitshares, Dash, Dogecoin, Ethereum, Litecoin, Monero, Neucoin, Nubits, Nxt, Peercoin & more at http://TheDailyDecrypt.com/Tip-Us
+
+ProTip ready: 1u9ZrWbVFkaYJ89VL3ynarQb5HUKW7zKB]]></description>
+            <enclosure url="https://i.ytimg.com/vi/VkOv2GvVjcY/default.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[NEWS: Transaction prices. Dogecoin on Ethereum. Tritium & Bitcoin Jesus.]]></title>
+            <pubDate>Fri, 18 Dec 2015 20:19:28 GMT</pubDate>
+            <description><![CDATA[What happens to Bitcoin transaction prices when demand exceeds supply? BitFirm's shares on NXT. ForkLog covers Doge on E. Purse's Tritium geared to 'Joe Average.' Roger Ver on Power & Market.
+
+Connect with us!
+[website] http://TheDailyDecrypt.com
+[tweets] http://Twitter.com/TheDailyDecrypt
+[facebook] http://Facebook.com/TheDailyDecrypt
+[podcast] http://Soundcloud.com/The-LTB-Network
+[LTB Network] https://LetsTalkBitcoin.com/Blog/The-Daily-Decrypt
+
+Wanna sponsor a show?
+http://TheDailyDecrypt.com/Sponsorship
+
+Sponsor: Nubits -- http://nubits.com
+
+Sponsored Shout-Out: Roberts & Roberts Brokerage 'Peace on Earth' campaign — https://www.rrbi.co
+
+Show links:
+Purse's Tritium: http://coinjournal.net/purse-reveals-details-on-secret-project-tritium
+BitFirm's shares on NXT Asset Exchange: http://nxtreporting.com/?as=2069092550347872704
+Peter R's popular post: https://bitco.in/forum/threads/gold-collapsing-bitcoin-up.16/page-171#post-6050
+Dogecoin on Ethereum smart contracts: http://forklog.net/dogecoin-integrates-in-ethereum-for-application-in-smart-contracts
+Bitcoin Jesus Roger Ver's new interview: http://powerandmarket.com/pmr-2015-3
+
+Music: 'Greensleeves' cover by Charlie Parra -- https://www.youtube.com/watch?v=aZ7yRj_ScdU
+
+Contact us:
+http://TheDailyDecrypt.com/Contact
+
+Tip us!
+See our addresses for Bitcoin, BitcoinDark, Bitshares, Dash, Dogecoin, Ethereum, Litecoin, Monero, Neucoin, Nubits, Nxt, Peercoin & more at http://TheDailyDecrypt.com/Tip-Us
+
+ProTip ready: 1u9ZrWbVFkaYJ89VL3ynarQb5HUKW7zKB]]></description>
+            <enclosure url="https://i.ytimg.com/vi/vhhD0dNBko4/default.jpg">
+            </enclosure>
+        </item>
+    </channel>
+</rss>
