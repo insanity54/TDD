@@ -112,5 +112,50 @@ describe('downloader', function() {
 	});
 
 
+
+
+
+	it('should download an already downloaded mp3 if option force==true', function(done) {
+	    var downloader1 = new Downloader({
+		videoID: "Mh2GQmfN-AI"
+	    });
+	    var downloader2 = new Downloader({
+		videoID: "Mh2GQmfN-AI",
+		force: true
+	    });
+	    
+	    downloader1.fetch();
+
+	    downloader1.on("error", function(err) {
+		assert.isNull(err);
+	    });
+
+
+	    downloader1.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);
+		assert.isTrue(path.isAbsolute(filePath));
+		fs.stat(filePath, function(err, stats) {
+		    assert.isNull(err);
+
+		    downloader2.fetch();
+		    
+		    downloader2.on("error", function(err) {
+			assert.isNull(err);
+		    });
+		    
+		    downloader2.on("progress", function(report) {
+			assert.isTrue(report.forced);
+		    });
+		    
+		    downloader2.on("complete", function(filePath) {
+			assert.equal(path.dirname(filePath), path.join(os.homedir(), 'tdd', 'src'));
+			done();
+		    });		
+		});
+	    });
+	    
+	});
+	
+
     });
 });

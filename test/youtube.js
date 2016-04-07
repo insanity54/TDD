@@ -1,5 +1,5 @@
 var path = require('path');
-var youtube = require(path.join(__dirname, '..', 'lib', 'youtube'));
+var Youtube = require(path.join(__dirname, '..', 'lib', 'youtube'));
 var assert = require('chai').assert;
 
 
@@ -17,6 +17,7 @@ describe('youtube', function() {
 
     describe('getVideoContentDetails()', function() {
 	it('should return video content details given a video ID', function(done) {
+	    var youtube = new Youtube();
 	    youtube.getVideoContentDetails('0AcHmDxVnMI', function(err, deets) {
 		assert.isNull(err);
 		assert.isObject(deets);
@@ -32,6 +33,7 @@ describe('youtube', function() {
 	var playlistID = 'UUqNCLd2r19wpWWQE6yDLOOQ';
 
 	it('should accept a playlistID and a callback', function(done) {
+	    var youtube = new Youtube();	    
 	    youtube.getVideos(playlistID, function(err, videos) {
 		assert.isNull(err);
 		assert.isObject(videos);
@@ -44,6 +46,7 @@ describe('youtube', function() {
 	
 
 	it('should accept a playlistID, nextPageToken, and a callback', function(done) {
+	    var youtube = new Youtube();	    
 	    youtube.getVideos(playlistID, npt, function(err, videos) {
 		assert.isNull(err);
 		assert.isObject(videos);
@@ -55,6 +58,7 @@ describe('youtube', function() {
 	});
 
 	it('should get a new page if using nextPageToken', function(done) {
+	    var youtube = new Youtube();	    
 	    youtube.getVideos(playlistID, npt, function(err, videos) {
 		assert.isNull(err);
 		var nnpt = videos.nextPageToken;
@@ -77,6 +81,7 @@ describe('youtube', function() {
 	this.timeout(5000);
 	
 	it('should get video details', function(done) {
+	    var youtube = new Youtube();	    
 	   youtube.getVideoDetails('dQw4w9WgXcQ', function(err, deets) {
 	       assert.isNull(err);
 	       assert.isObject(deets);
@@ -90,6 +95,7 @@ describe('youtube', function() {
 
     describe('getChannelUploads()', function() {
 	this.timeout(5000);
+	    var youtube = new Youtube();	
 	var cid = 'UCqNCLd2r19wpWWQE6yDLOOQ';
 	
 	it('should accept the channelID and a callback', function(done) {
@@ -102,6 +108,7 @@ describe('youtube', function() {
 	});
 
 	it('should accept the channelID, a nextPageToken, and a callback', function(done) {
+	    var youtube = new Youtube();	    
 	    youtube.getChannelUploads(cid, npt, function(err, vDeets) {
 		assert.isNull(err);
 		assert.isObject(vDeets);
@@ -111,6 +118,7 @@ describe('youtube', function() {
 	});
 
 	it('should get a new page if using nextPageToken', function(done) {
+	    var youtube = new Youtube();	    
 	    youtube.getChannelUploads(cid, npt, function(err, videos) {
 		assert.isNull(err);
 		var nnpt = videos.nextPageToken;
