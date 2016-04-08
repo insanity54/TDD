@@ -23,7 +23,7 @@ var queue = new Queue();
 var olOpts = {
     youtube: youtube,
     channel: 'UCqNCLd2r19wpWWQE6yDLOOQ',
-    queue: queue
+    queue: queue,
     ipns: '' // ipns multihash that will point to the built website
 }
 
