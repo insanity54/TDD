@@ -22,7 +22,7 @@ describe('Builder', function() {
 	    podcastAuthor: "Chris Grimmett",
 	    podcastAuthorEmail: "chris@grimtech.net",
 	    podcastAuthorLink: "http://tddpodcast.grimtech.net/",
-	    ipns: '12345678910239120412412414'
+	    ipns: 'http://127.0.0.1:8080/'
 	});
 	builder.build(function(err) {
 	    assert.isNull(err);
