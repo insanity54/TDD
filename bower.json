@@ -1,0 +1,28 @@
+{
+  "name": "the-daily-decrypt-podcasts",
+  "description": "Podcast generator for The Daily Decrypt",
+  "main": "index.js",
+  "authors": [
+    "Chris Grimmett <chris@grimtech.net>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bitcoin",
+    "daily",
+    "decrypt",
+    "podcast"
+  ],
+  "homepage": "https://github.com/insanity54/tdd",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
