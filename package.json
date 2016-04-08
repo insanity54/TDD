@@ -4,8 +4,8 @@
   "description": "Podcast generator for The Daily Decrypt",
   "main": "index.js",
   "scripts": {
-    "test": "nf run mocha",
-    "start": "nf start"
+    "test": "mocha",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "foreman": "^1.4.1",
     "mocha": "^2.4.5"
   }
 }
