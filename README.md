@@ -100,6 +100,8 @@ Now the app will download and podcastify and IPFSify any videos that haven't bee
 * [ ] bulk podcastification, IPFSification
 * [ ] reactional podcastification, IPFSification
 
+* [ ] switch back to nikhilm's taglib once this is merged: https://github.com/nikhilm/node-taglib/pull/63
+
 ## Contributing
 
 hellz yes, open those issues, request those pulls!
