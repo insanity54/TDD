@@ -12,6 +12,12 @@ describe('thumbnailer', function() {
 
     describe('get()', function() {
 
+	beforeEach(function(done) {
+	    fs.unlink(testFile, function(err) {
+		done();
+	    });
+	});
+	
 	it('should download an image to the specified destination', function(done) {
 	    this.timeout(10000);
 	    thumbnailer.get(testThumbnail, testFile, function(err) {

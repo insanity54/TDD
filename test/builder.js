@@ -8,8 +8,9 @@ var fs = require('fs');
 
 describe('Builder', function() {
 
-    this.timeout(10000);
     it('should create static site in ./dist', function(done) {
+	this.timeout( (60*1000)*5 );
+
 	var builder = new Builder({
 	    cwd: path.join(os.homedir(), 'tdd', 'src'),
 	    src: path.join(os.homedir(), 'tdd', 'src'),
@@ -22,7 +23,7 @@ describe('Builder', function() {
 	    podcastAuthor: "Chris Grimmett",
 	    podcastAuthorEmail: "chris@grimtech.net",
 	    podcastAuthorLink: "http://tddpodcast.grimtech.net/",
-	    ipns: 'http://127.0.0.1:8080/'
+	    podcastIPNS: 'http://127.0.0.1:8080/'
 	});
 	builder.build(function(err) {
 	    assert.isNull(err);

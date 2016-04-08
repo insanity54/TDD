@@ -26,6 +26,7 @@
   "dependencies": {
     "feed": "^0.3.0",
     "fluent-ffmpeg": "^2.0.1",
+    "fs-extra": "^0.26.7",
     "handlebars": "^4.0.5",
     "metalsmith": "^2.1.0",
     "metalsmith-collections": "^0.7.0",
