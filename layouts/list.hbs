@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="./components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="alternate" type="application/rss+xml" href="./rss.xml" />  {{! RSS link }}
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="./components/html5shiv/dist/html5shiv/html5shiv.min.js"></script>
+      <script src="./components/respond/dest/respond.min.js"></script>
+      <![endif]-->
+  <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <a rel="alternate" type="application/rss+xml" href="./rss.xml">
+      <img src="./feed-icon-28x28.png">
+    </a>
+    <h1>The Daily Decrypt Podcast</h1>
+    {{#each this}}
+      <div class="row">
+        <hr/>
+        <div class="col-sm-2">
+          <a href="/{{ this.resourceId.videoId }}">
+            <img class="media-object" src="./{{ this.resourceId.videoId }}.jpg" alt="album image" width="120px" height="120px">
+          </a>
+        </div>
+        <div class="col-sm-10">
+          <h4 class="media-heading">{{ this.title }}</h4>
+          <a href="/{{ this.resourceId.videoId }}">{{ tis.resourceId.videoId }}Details</a>
+        </div>
+      </div>
+      <p></p>
+      {{/each}}
+  </div>
+</body>
+</html>

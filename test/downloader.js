@@ -1,41 +1,161 @@
 var path = require('path');
 var os = require('os');
-var downloader = require(path.join(__dirname, '..', 'lib', 'downloader'));
+var Downloader = require(path.join(__dirname, '..', 'lib', 'downloader'));
 var assert = require('chai').assert;
 var fs = require('fs');
 
 
-var testPath = os.tmpdir();
-assert(path.isAbsolute(testPath));
+var dlPath = path.join(os.tmpdir(), 'Mh2GQmfN-AI.mp3');
+var defaultDlPath = path.join(os.homedir(), 'tdd', 'src', 'Mh2GQmfN-AI.mp3');
+assert(path.isAbsolute(dlPath));
+assert(path.isAbsolute(defaultDlPath));
 
 
 describe('downloader', function() {
 
     describe('fetch()', function() {
 	this.timeout(10000);
-	
-	it('should get an mp3 of a yt video', function(done) {
-	   downloader.fetch('Mh2GQmfN-AI', testPath, function(err, path) {
-	       assert.isNull(err);
-	       assert.equal(path, testPath);
-	       fs.stat(path, function(err, stats) {
-		   assert.isNull(err);
-		   done();
-	       });	       
-	   });
-	});
 
-	it('should revert to default download directory if none supplied', function(done) {
-	    downloader.fetch('Mh2GQmfN-AI', function(err, path) {
-		assert.isNull(err);
-		assert.isString(path);
-		fs.stat(path, function(err, stats) {
-		    assert.isNull(err);
+	beforeEach(function(done) {
+	    // delete test mp3s
+	    //console.log('deleting %s and %s', dlPath, defaultDlPath);
+	    fs.unlink(dlPath, function(err) {
+		fs.unlink(defaultDlPath, function(err) {
 		    done();
 		});
 	    });
 	});
 
+	it('should get an mp3 of a yt video', function(done) {
+	    var downloader = new Downloader({
+		videoID: "Mh2GQmfN-AI",
+		dest: path.dirname(dlPath)
+	    });
+
+	    downloader.fetch();
+
+	    downloader.on("error", function(err) {
+		assert.isNull(err);
+	    });
+	    
+	    downloader.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);
+		assert.isTrue(path.isAbsolute(filePath));
+		assert.equal(filePath, dlPath);
+		fs.stat(filePath, function(err, stats) {
+		    assert.isNull(err);
+		    done();
+		});
+	    });
+	    
+	});
+
+	it('should revert to default download directory if none supplied', function(done) {
+	    var downloader = new Downloader({
+		videoID: "Mh2GQmfN-AI"
+	    });
+	    
+	    downloader.fetch();
+
+	    downloader.on("error", function(err) {
+		assert.isNull(err);
+	    });
+	    
+	    downloader.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);		
+		assert.isTrue(path.isAbsolute(filePath));
+		assert.equal(path.dirname(filePath), path.join(os.homedir(), 'tdd', 'src'));
+		fs.stat(filePath, function(err, stats) {
+		    assert.isNull(err);
+		    done();
+		});
+	    });
+	    
+	});
 	
+	
+	it('should abort download if the same video has already been downloaded', function(done) {
+	    var downloader1 = new Downloader({
+		videoID: "Mh2GQmfN-AI"
+	    });
+	    var downloader2 = new Downloader({
+		videoID: "Mh2GQmfN-AI"
+	    });
+	    
+	    downloader1.fetch();
+
+	    downloader1.on("error", function(err) {
+		assert.isNull(err);
+	    });
+
+
+	    
+	    downloader1.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);
+		assert.isTrue(path.isAbsolute(filePath));
+		fs.stat(filePath, function(err, stats) {
+		    assert.isNull(err);
+
+		    downloader2.fetch();
+		    
+		    downloader2.on("error", function(err) {
+			assert.isNull(err);
+		    });
+		    
+		    downloader2.on("complete", function(filePath) {
+			assert.equal(path.dirname(filePath), path.join(os.homedir(), 'tdd', 'src'));
+			done();
+		    });		
+		});
+	    });
+	    
+	});
+
+
+
+
+
+	it('should download an already downloaded mp3 if option force==true', function(done) {
+	    var downloader1 = new Downloader({
+		videoID: "Mh2GQmfN-AI"
+	    });
+	    var downloader2 = new Downloader({
+		videoID: "Mh2GQmfN-AI",
+		force: true
+	    });
+	    
+	    downloader1.fetch();
+
+	    downloader1.on("error", function(err) {
+		assert.isNull(err);
+	    });
+
+
+	    downloader1.on("complete", function(filePath) {
+		//console.log('downloaded to %s', filePath);
+		assert.isTrue(path.isAbsolute(filePath));
+		fs.stat(filePath, function(err, stats) {
+		    assert.isNull(err);
+
+		    downloader2.fetch();
+		    
+		    downloader2.on("error", function(err) {
+			assert.isNull(err);
+		    });
+		    
+		    downloader2.on("progress", function(report) {
+			assert.isTrue(report.forced);
+		    });
+		    
+		    downloader2.on("complete", function(filePath) {
+			assert.equal(path.dirname(filePath), path.join(os.homedir(), 'tdd', 'src'));
+			done();
+		    });		
+		});
+	    });
+	    
+	});
+	
+
     });
 });

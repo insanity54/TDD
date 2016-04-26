@@ -4,8 +4,8 @@
   "description": "Podcast generator for The Daily Decrypt",
   "main": "index.js",
   "scripts": {
-    "test": "nf run mocha",
-    "start": "nf start"
+    "test": "mocha",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
   },
   "homepage": "https://github.com/insanity54/tdd#readme",
   "dependencies": {
+    "feed": "^0.3.0",
     "fluent-ffmpeg": "^2.0.1",
+    "fs-extra": "^0.26.7",
     "handlebars": "^4.0.5",
     "metalsmith": "^2.1.0",
     "metalsmith-collections": "^0.7.0",
@@ -32,12 +34,14 @@
     "metalsmith-layouts": "^1.6.4",
     "metalsmith-metafiles": "^2.0.0",
     "request": "^2.69.0",
+    "rss": "^1.2.1",
     "taglib": "git://github.com/Vortex375/node-taglib.git#v8-compat",
     "underscore": "^1.8.3",
     "youtube-mp3-downloader": "^0.4.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "foreman": "^1.4.1",
     "mocha": "^2.4.5"
   }
 }
