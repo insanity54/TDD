@@ -31,6 +31,7 @@
     "metalsmith-json-to-files": "^1.0.0",
     "metalsmith-layouts": "^1.6.4",
     "metalsmith-metafiles": "^2.0.0",
+    "request": "^2.69.0",
     "taglib": "git://github.com/Vortex375/node-taglib.git#v8-compat",
     "underscore": "^1.8.3",
     "youtube-mp3-downloader": "^0.4.2"
