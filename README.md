@@ -93,11 +93,11 @@ Now the app will download and podcastify and IPFSify any videos that haven't bee
 * [x] get list of vids
 * [x] download vids
 * [x] convert vids
-* [ ] generate website
+* [x] generate website
 * [ ] add website IPFS
 * [ ] publish to IPNS
 
-* [ ] bulk podcastification, IPFSification
+* [x] bulk podcastification, IPFSification
 * [ ] reactional podcastification, IPFSification
 
 * [ ] switch back to nikhilm's taglib once this is merged: https://github.com/nikhilm/node-taglib/pull/63
