@@ -1,60 +1,51 @@
-var gulp, livereload, shell, injectReload, st, http;
+var gulp = require('gulp');
+var gls = require('gulp-live-server');
+var shell = require('gulp-shell');
+var injectReload = require('gulp-inject-reload');
 
-gulp = require('gulp');
-shell = require('gulp-shell');
-livereload = require('gulp-livereload');
-injectReload = require('gulp-inject-reload');
-st = require('st');
-http = require('http');
-path = require('path');
 
+var paths = {
+  js: 'dist/js/**/*.js',
+  html: 'dist/**/*.html'
+}
 
 
 gulp.task('watch', [
   'watchify',
-  'reload'
+  'html'
 ]);
 
 gulp.task('build', [
   'browserify',
-  'html-prod'
+  'html'
 ]);
 
 gulp.task('browserify', shell.task(
-  "browserify client/main.js --outfile dist/js/bundle.js"
-))
+  "node node_modules/browserify/bin/cmd.js client/main.js --outfile dist/js/bundle.js"
+));
 
 gulp.task('watchify', shell.task(
   "node node_modules/watchify/bin/cmd.js client/main.js --outfile dist/js/bundle.js --debug"
 ));
 
 
-gulp.task('html-dev', function() {
-  /** inject livereload js into page */
-  gulp.src('client/index.html')
-    .pipe(injectReload({
-      host: 'http://127.0.0.1'
-    }))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('reload', function() {
-  /* reload dev server when changes are seen */
-  livereload.listen();
-  return gulp.watch('./dist/js/bundle.js')
+gulp.task('html', function() {
+  gulp.watch('client/index.html')
     .on('change', function(file) {
-      return livereload.changed(file.path);
+      gulp.src('client/index.html')
+        .pipe(gulp.dest('dist/index.html'));
     });
 });
 
+
 gulp.task('serve', function(done) {
-  http.createServer(
-    st({
-      path: path.join(__dirname, 'dist'),
-      index: 'index.html',
-      cache: false
-    }))
-    .listen(8080, done);
+  var server = gls.static('dist', 8080);
+  server.start();
+
+  gulp.watch([paths.js, paths.html], function(file) {
+    console.log('change in file '+file.path);
+    server.notify.apply(server, [file]);
+  });
 });
 
-gulp.task('default', ['watch', 'serve']);
+gulp.task('default', ['serve', 'watch']);
