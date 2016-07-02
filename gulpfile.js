@@ -1,12 +1,11 @@
 var gulp = require('gulp');
 var gls = require('gulp-live-server');
 var shell = require('gulp-shell');
-var injectReload = require('gulp-inject-reload');
 
 
 var paths = {
   js: 'dist/js/**/*.js',
-  html: 'dist/**/*.html'
+  html: 'dist/*.html'
 }
 
 
@@ -30,10 +29,10 @@ gulp.task('watchify', shell.task(
 
 
 gulp.task('html', function() {
-  gulp.watch('client/index.html')
+  gulp.watch('./client/index.html')
     .on('change', function(file) {
-      gulp.src('client/index.html')
-        .pipe(gulp.dest('dist/index.html'));
+      gulp.src('./client/index.html')
+        .pipe(gulp.dest('dist'));
     });
 });
 

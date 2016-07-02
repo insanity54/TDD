@@ -102,6 +102,8 @@ Now the app will download and podcastify and IPFSify any videos that haven't bee
 
 * [ ] switch back to nikhilm's taglib once this is merged: https://github.com/nikhilm/node-taglib/pull/63
 
+* [ ] use bootstrap stylesheet from node_modules rather than CDN
+
 ## Contributing
 
 hellz yes, open those issues, request those pulls!
