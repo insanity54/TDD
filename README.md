@@ -1,5 +1,7 @@
 # TheDailyDecrypt Podcast Generator
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/insanity54/TDD.svg)](https://greenkeeper.io/)
+
 a.k.a. TDDPG (cooler name pending)
 
 Automatic podcast creator for [The Daily Decrypt](https://www.youtube.com/channel/UCqNCLd2r19wpWWQE6yDLOOQ)
